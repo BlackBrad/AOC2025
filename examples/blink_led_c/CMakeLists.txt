@@ -8,6 +8,11 @@ add_executable(
     blink_led_count.c
 )
 
+add_executable(
+    blink_clock
+    blink_led_clock.c
+)
+
 pico_add_extra_outputs(blink)
 pico_add_extra_outputs(blink_count)
 
@@ -17,11 +22,11 @@ target_link_libraries(
 )
 
 target_link_libraries(
-    blink
+    blink_count
     pico_stdlib
 )
 
 target_link_libraries(
-    blink_count
+    blink_clock
     pico_stdlib
 )

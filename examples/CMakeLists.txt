@@ -1,1 +1,3 @@
 add_subdirectory(blink_led_c)
+add_subdirectory(blink_led_asm)
+add_subdirectory(test_display)

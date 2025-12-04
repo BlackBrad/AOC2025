@@ -1,7 +1,7 @@
 #include "pico/stdlib.h"
 #include "pico/binary_info.h"
 
-const uint LED_PIN = 25;
+const uint LED_PIN = 6;
 
 int main(void){
 
@@ -10,6 +10,9 @@ int main(void){
 
     while(1){
         gpio_put(LED_PIN, 1);
+        sleep_ms(50);
+        gpio_put(LED_PIN, 0);
+        sleep_ms(50);
     }
 
     return 0;

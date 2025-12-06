@@ -31,7 +31,22 @@ end
 header_file = "
 #ifndef __DATA_H\n
 #define __DATA_H\n
-\n"
+\n
+char *get_data();\n
+\n
+#endif
+"
+
+c_file = "
+#include \"data.h\"\n
+\n
+"
+
+getter_function = "
+const char **get_data(){\n
+    return data;\n
+}
+"
 
 string_array = ""
 longest_line = 0
@@ -44,9 +59,10 @@ File.foreach(input_file_path) do |line|
   end
 end
 
-header_file << "char data_array[#{line_count}][#{longest_line+1}] = {\n"
-header_file << string_array
-header_file << "};\n"
-header_file << "#endif"
+c_file << "const char *data[] = {\n"
+c_file << string_array
+c_file << "};\n\n"
+c_file << getter_function
 
-File.write(output_file_path, header_file)
+File.write("#{output_file_path}/data.c", c_file)
+File.write("#{output_file_path}/data.h", header_file);

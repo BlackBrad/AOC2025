@@ -35,14 +35,16 @@ header_file = "
 
 string_array = ""
 longest_line = 0
+line_count = 0
 File.foreach(input_file_path) do |line|
   string_array << "    \"#{line.strip!}\",\n"
+  line_count = line_count + 1
   if longest_line < line.length
     longest_line = line.length
   end
 end
 
-header_file << "char data_array[#{longest_line+1}] = {\n"
+header_file << "char data_array[#{line_count}][#{longest_line+1}] = {\n"
 header_file << string_array
 header_file << "};\n"
 header_file << "#endif"

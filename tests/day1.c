@@ -6,6 +6,7 @@
 //int64_t count_rotation();
 
 void setUp() {
+    reset();
 }
 
 void tearDown() {
@@ -81,6 +82,18 @@ void test_count_rotation_5(){
     TEST_ASSERT_EQUAL_INT64(75, get_rotation());
 }
 
+void test_count_rotation_6(){
+    count_rotation("L50");
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+}
+
+void test_count_rotation_7(){
+    count_rotation("R50");
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+}
+
 int main(void) {
     UNITY_BEGIN();
 
@@ -94,6 +107,8 @@ int main(void) {
     RUN_TEST(test_count_rotation_3);
     RUN_TEST(test_count_rotation_4);
     RUN_TEST(test_count_rotation_5);
+    RUN_TEST(test_count_rotation_6);
+    RUN_TEST(test_count_rotation_7);
 
     UNITY_END();
 }

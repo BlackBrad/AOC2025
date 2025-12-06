@@ -1,7 +1,7 @@
 #include "pico/stdlib.h"
 #include "pico/binary_info.h"
 
-const uint LED_PIN = 25;
+const uint LED_PIN = 18;
 
 int main(void){
 

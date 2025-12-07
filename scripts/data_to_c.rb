@@ -32,7 +32,10 @@ header_file = "
 #ifndef __DATA_H\n
 #define __DATA_H\n
 \n
-char *get_data();\n
+#include <stdint.h>\n
+\n
+const char **get_data();\n
+uint64_t get_size();\n
 \n
 #endif
 "
@@ -46,6 +49,12 @@ getter_function = "
 const char **get_data(){\n
     return data;\n
 }
+"
+
+get_size_function = "
+uint64_t get_size(){\n
+    return size;\n
+}\n
 "
 
 string_array = ""
@@ -63,6 +72,8 @@ c_file << "const char *data[] = {\n"
 c_file << string_array
 c_file << "};\n\n"
 c_file << getter_function
+c_file << "uint64_t size = #{line_count};\n"
+c_file << get_size_function
 
 File.write("#{output_file_path}/data.c", c_file)
 File.write("#{output_file_path}/data.h", header_file);

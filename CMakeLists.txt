@@ -23,4 +23,5 @@ else()
     pico_sdk_init()
 
     add_subdirectory(examples)
+    add_subdirectory(day1)
 endif()

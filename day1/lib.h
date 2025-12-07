@@ -2,6 +2,7 @@
 #define __DAY1_LIB_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "data.h"
 

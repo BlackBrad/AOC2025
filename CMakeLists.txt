@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.12)
 
 SET(BUILD_UNIT_TESTS FALSE CACHE STRING "Build unit tests rather than the executabe")
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
 if (BUILD_UNIT_TESTS)
     project(aoc2025)
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR})
     add_subdirectory(Unity)
     add_subdirectory(tests)
 else()

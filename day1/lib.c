@@ -16,10 +16,10 @@ uint64_t get_rotation(){
 
 void get_rotation_and_number(char *str, bool *direction, uint64_t *rotation_count){
     char number[255];
-    *direction = COUNT_DOWN;
+    *direction = COUNT_UP;
     
     if (str[0] == 'L') {
-        *direction = COUNT_UP;
+        *direction = COUNT_DOWN;
     }
 
     strcpy(number, &str[1]);
@@ -45,7 +45,7 @@ void count_rotation(char *str){
         } else {
             int64_t temp = rotation - mod;
             if (temp < 0) {
-                rotation = 0 + (temp * -1);
+                rotation = 100 - (temp * -1);
             } else {
                 rotation = temp;
             }

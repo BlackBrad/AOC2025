@@ -4,8 +4,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "data.h"
-
 #define MAX_ROTATION 99
 
 #define COUNT_UP true

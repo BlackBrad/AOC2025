@@ -34,7 +34,7 @@ header_file = "
 \n
 #include <stdint.h>\n
 \n
-const char **get_data();\n
+char **get_data();\n
 uint64_t get_size();\n
 \n
 #endif
@@ -46,7 +46,7 @@ c_file = "
 "
 
 getter_function = "
-const char **get_data(){\n
+char **get_data(){\n
     return data;\n
 }
 "
@@ -68,7 +68,7 @@ File.foreach(input_file_path) do |line|
   end
 end
 
-c_file << "const char *data[] = {\n"
+c_file << "char *data[] = {\n"
 c_file << string_array
 c_file << "};\n\n"
 c_file << getter_function

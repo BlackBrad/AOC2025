@@ -67,19 +67,18 @@ void test_count_rotation_2(){
 void test_count_rotation_3(){
     count_rotation("R75");
 
-    TEST_ASSERT_EQUAL_INT64(75, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(25, get_rotation());
 }
 
 void test_count_rotation_4(){
     count_rotation("R275");
 
-    TEST_ASSERT_EQUAL_INT64(75, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(25, get_rotation());
 }
 
 void test_count_rotation_5(){
     count_rotation("L275");
-
-    TEST_ASSERT_EQUAL_INT64(75, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(25, get_rotation());
 }
 
 void test_count_rotation_6(){

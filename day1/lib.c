@@ -6,6 +6,10 @@
 static uint64_t number_of_hits = 0;
 static uint64_t rotation = 50;
 
+uint64_t get_number_of_hits(){
+    return number_of_hits;
+}
+
 uint64_t get_rotation(){
     return rotation;
 }
@@ -45,6 +49,16 @@ void count_rotation(char *str){
             } else {
                 rotation = temp;
             }
+        }
+    }
+}
+
+void run(char **data, uint64_t size) {
+    for (int index = 0; index < size; index++){
+        count_rotation(data[index]);
+
+        if (rotation == 0) {
+            number_of_hits += 1;
         }
     }
 }

@@ -93,6 +93,70 @@ void test_count_rotation_7(){
     TEST_ASSERT_EQUAL_INT64(0, get_rotation());
 }
 
+void test_run_1(){
+    char *data[] = {
+        "L25",
+    };
+
+    run(data, 1);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_number_of_hits());
+}
+
+void test_run_2(){
+    char *data[] = {
+        "L25",
+        "L25",
+    };
+
+    run(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(1, get_number_of_hits());
+}
+
+void test_run_3(){
+    char *data[] = {
+        "R25",
+    };
+
+    run(data, 1);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_number_of_hits());
+}
+
+void test_run_4(){
+    char *data[] = {
+        "R25",
+        "R25",
+    };
+
+    run(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(1, get_number_of_hits());
+}
+
+void test_run_5(){
+    char *data[] = {
+        "R50",
+        "R25",
+    };
+
+    run(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(1, get_number_of_hits());
+}
+
+void test_run_6(){
+    char *data[] = {
+        "R50",
+        "L100",
+    };
+
+    run(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(2, get_number_of_hits());
+}
+
 int main(void) {
     UNITY_BEGIN();
 
@@ -108,6 +172,13 @@ int main(void) {
     RUN_TEST(test_count_rotation_5);
     RUN_TEST(test_count_rotation_6);
     RUN_TEST(test_count_rotation_7);
+
+    RUN_TEST(test_run_1);
+    RUN_TEST(test_run_2);
+    RUN_TEST(test_run_3);
+    RUN_TEST(test_run_4);
+    RUN_TEST(test_run_5);
+    RUN_TEST(test_run_6);
 
     UNITY_END();
 }

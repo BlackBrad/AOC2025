@@ -3,7 +3,7 @@
 #include "libs/display.h"
 
 int main(void){
-    run_part1(get_data(), get_size());
+    run_part2(get_data(), get_size());
 
     while(1) {
         display(get_number_of_hits());

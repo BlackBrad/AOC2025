@@ -37,11 +37,11 @@ void count_rotation(char *str, bool part_2){
 
     mod = (count % 100);
 
-    if (count > MAX_ROTATION && part_2) {
+    if (count >= MAX_ROTATION + 1 && part_2) {
         number_of_hits  += count / MAX_ROTATION;
     }
 
-    if (!(mod == 0)){
+    if (mod != 0){
         if (direction == COUNT_UP) {
             rotation += mod;
             if (rotation > MAX_ROTATION) {
@@ -66,8 +66,38 @@ void count_rotation(char *str, bool part_2){
         }
     }
 
-    if (rotation == 0) {
+    if (rotation == 0 && mod != 0) {
         number_of_hits += 1;
+    }
+}
+
+void count_rotation_dumb(char *str){
+    bool direction = false;
+    uint64_t count = 0;
+    int tmp_rotation = 0;
+
+    get_rotation_and_number(str, &direction, &count);
+
+    for (int i = 0; i < count; i++){
+        if (direction == COUNT_UP) {
+            rotation += 1;
+            if (rotation > MAX_ROTATION){
+                rotation = 0;
+                number_of_hits += 1;
+            }
+        } else {
+            tmp_rotation = rotation - 1;
+
+            if (tmp_rotation < 0){
+                rotation = MAX_ROTATION;
+                number_of_hits += 1;
+            } else if (tmp_rotation == 0){
+                rotation = tmp_rotation;
+                number_of_hits += 1;
+            } else {
+                rotation = tmp_rotation;
+            }
+        }
     }
 }
 
@@ -79,8 +109,13 @@ void run_part1(char **data, uint64_t size) {
 
 void run_part2(char **data, uint64_t size) {
     for (int index = 0; index < size; index++){
-        count_rotation(data[index], true);
+        //count_rotation(data[index], true);
+        count_rotation_dumb(data[index]);
     }
+}
+
+void set_hit_count(uint64_t hits){
+    number_of_hits = hits;
 }
 
 void reset(){

@@ -363,10 +363,64 @@ void test_run_part_2_7(){
     TEST_ASSERT_EQUAL_INT64(10, get_number_of_hits());
 }
 
+void test_run_part_2_8(){
+    char *data[] = {
+        "R50",
+        "R100",
+    };
+
+    run_part2(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(2, get_number_of_hits());
+}
+
+void test_run_part_2_9(){
+    char *data[] = {
+        "R50",
+        "L100",
+    };
+
+    run_part2(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(2, get_number_of_hits());
+}
+
+void test_run_part_2_10(){
+    char *data[] = {
+        "R50",
+        "R200",
+    };
+
+    run_part2(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(3, get_number_of_hits());
+}
+
+void test_run_part_2_11(){
+    char *data[] = {
+        "R50",
+        "L200",
+    };
+
+    run_part2(data, 2);
+
+    TEST_ASSERT_EQUAL_INT64(0, get_rotation());
+    TEST_ASSERT_EQUAL_INT64(3, get_number_of_hits());
+}
+
 void test_run_provided_example_data_part_2(){
     run_part2(get_data(), get_size());
 
     TEST_ASSERT_EQUAL_INT64(6, get_number_of_hits());
+}
+
+void test_count_rotation_dumb(){
+    set_rotation_count(1);
+    count_rotation_dumb("L12");
+    TEST_ASSERT_EQUAL_INT64(1, get_number_of_hits());
 }
 
 int main(void) {
@@ -412,8 +466,14 @@ int main(void) {
     RUN_TEST(test_run_part_2_5);
     RUN_TEST(test_run_part_2_6);
     RUN_TEST(test_run_part_2_7);
+    RUN_TEST(test_run_part_2_8);
+    RUN_TEST(test_run_part_2_9);
+    RUN_TEST(test_run_part_2_10);
+    RUN_TEST(test_run_part_2_11);
 
     RUN_TEST(test_run_provided_example_data_part_2);
+
+    RUN_TEST(test_count_rotation_dumb);
 
     UNITY_END();
 }

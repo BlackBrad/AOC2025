@@ -28,7 +28,7 @@ build_tests() {
 }
 
 if [ $# -eq 0 ]; then
-    echo "Only one?"
+    build_pico
 elif [ $# -gt 1 ]; then
     echo "Only one option allowed, -h"
 elif [ $1 == "pico" ]; then

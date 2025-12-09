@@ -16,8 +16,10 @@ void count_rotation(char *, bool part_2);
 
 void run_part1(char **data, uint64_t size);
 void run_part2(char **data, uint64_t size);
+void count_rotation_dumb(char *str);
 
 // Really just for unit testing
 void reset();
+void set_rotation_count(uint64_t rotation_count);
 
 #endif // __DAY1_LIB_H

@@ -7,7 +7,8 @@ BUILD_TEST_DIR="$ROOT_DIR/build_test"
 usage_text() {
     echo "make.sh [option]"
     echo "  pico        Build for the Pico 2 (RISC-V)"
-    echo "  test        Build the unit tests "
+    echo "  test        Build the unit tests"
+    echo "  all         Build all the targets"
     echo "  -h          Show this help text"
 }
 
@@ -35,6 +36,9 @@ elif [ $1 == "pico" ]; then
     build_pico
 elif [ $1 == "test" ]; then
     build_tests
+elif [ $1 == "all" ]; then
+    build_tests
+    build_pico
 elif [ $1 == "-h" ]; then
     usage_text
 else
